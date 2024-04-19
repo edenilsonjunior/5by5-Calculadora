@@ -1,39 +1,66 @@
-﻿float n1 = 0, n2 = 0, resultado = 0;
-char operacao;
+﻿float n1 = 0, n2 = 0, n3 = 0, n4 = 0;
+float resultado = 0;
+int operacao;
 
-Console.WriteLine("\n-----Calculadora-----\n");
+
+Console.WriteLine("=====Calculadora=====");
 
 Console.Write("Digite o primeiro numero: ");
 n1 = float.Parse(Console.ReadLine());
 
-
-Console.Write("Digite o segundo numero: ");
-n2 = float.Parse(Console.ReadLine());
-
-while(n2 == 0)
-{
-    Console.Write("Numero invalido, digite novamente: ");
+do{
+    Console.Write("Digite o segundo numero: ");
     n2 = float.Parse(Console.ReadLine());
-}
+    
+    if(n2 == 0){
+        Console.WriteLine("O numero digitado foi zero");
+        Console.WriteLine("Tente novamente");
+    }
+} while (n2 == 0);
 
-Console.Write("Digite o caractere da operacao(+-*/): ");
-operacao = char.Parse(Console.ReadLine());
+do{
+    Console.Write("Digite o terceiro numero: ");
+    n3 = float.Parse(Console.ReadLine());
 
-while(operacao != '+' && operacao != '-' && operacao != '*' && operacao != '/')
-{
-    Console.WriteLine("Operacao errada.");
-    Console.Write("Digite o caractere da operacao(+-*/): ");
-    operacao = char.Parse(Console.ReadLine());
-}
+    if (n3 == 0){
+        Console.WriteLine("O numero digitado foi zero");
+        Console.WriteLine("Tente novamente");
+    }
+} while (n3 == 0);
 
-if (operacao == '+')
-    resultado = n1 + n2;
-else if (operacao == '-')
-    resultado = n1 - n2;
-else if (operacao == '*')
-    resultado = n1 * n2;
+do{
+    Console.Write("Digite o quarto numero: ");
+    n4 = float.Parse(Console.ReadLine());
+
+    if (n4 == 0){
+        Console.WriteLine("O numero digitado foi zero");
+        Console.WriteLine("Tente novamente");
+    }
+} while (n4 == 0);
+
+
+do{
+    Console.WriteLine("=============================");
+    Console.WriteLine("Digite o numero da operacao");
+    Console.WriteLine("1- Adição");
+    Console.WriteLine("2- Subtracao");
+    Console.WriteLine("3- Multiplicacao");
+    Console.WriteLine("4- Divisão");
+
+    Console.Write("Digite sua escolha: ");
+    operacao = int.Parse(Console.ReadLine());
+
+} while (operacao != 1 && operacao != 2 && operacao != 3 && operacao != 4);
+
+
+if (operacao == 1)
+    resultado = n1 + n2 + n3 + n4;
+else if (operacao == 2)
+    resultado = n1 - n2 - n3 - n4;
+else if (operacao == 3)
+    resultado = n1 * n2 * n3 * n4;
 else
-    resultado = n1 / n2;
+    resultado = n1 / n2 / n3 / n4;
 
 Console.WriteLine("=============================");
 Console.WriteLine($"Operacao escolhida: {operacao}");
