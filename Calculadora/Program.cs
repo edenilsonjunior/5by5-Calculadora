@@ -1,28 +1,45 @@
-﻿Console.WriteLine("\n-----Calculadora-----\n");
+﻿float n1 = 0, n2 = 0, resultado = 0;
+char operacao;
 
-float n1 = 0, n2 = 0;
+Console.WriteLine("\n-----Calculadora-----\n");
 
 Console.Write("Digite o primeiro numero: ");
 n1 = float.Parse(Console.ReadLine());
 
+
 Console.Write("Digite o segundo numero: ");
 n2 = float.Parse(Console.ReadLine());
 
-Console.Write("Numero invalido, digite novamente: ");
-n2 = float.Parse(Console.ReadLine());
-
-Console.WriteLine($"Soma: {n1 + n2}");
-Console.WriteLine($"Subtracao: {n1 - n2}");
-Console.WriteLine($"Multiplicacao: {n1 * n2}");
-
-if(n2 != 0)
+while(n2 == 0)
 {
-    Console.WriteLine($"Divisao: {n1 / n2}");
+    Console.Write("Numero invalido, digite novamente: ");
+    n2 = float.Parse(Console.ReadLine());
 }
+
+Console.Write("Digite o caractere da operacao(+-*/): ");
+operacao = char.Parse(Console.ReadLine());
+
+while(operacao != '+' && operacao != '-' && operacao != '*' && operacao != '/')
+{
+    Console.WriteLine("Operacao errada.");
+    Console.Write("Digite o caractere da operacao(+-*/): ");
+    operacao = char.Parse(Console.ReadLine());
+}
+
+if (operacao == '+')
+    resultado = n1 + n2;
+else if (operacao == '-')
+    resultado = n1 - n2;
+else if (operacao == '*')
+    resultado = n1 * n2;
 else
-{
-    Console.WriteLine("Impossivel dividir por 0!");
-}
+    resultado = n1 / n2;
+
+Console.WriteLine("=============================");
+Console.WriteLine($"Operacao escolhida: {operacao}");
+Console.WriteLine($"Resultado: {resultado}");
+Console.WriteLine("=============================");
+
 
 Console.Write("\nDigite qualquer tecla para sair: ");
 Console.ReadKey();
