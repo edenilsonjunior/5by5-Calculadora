@@ -1,7 +1,7 @@
 ﻿float n1 = 0, n2 = 0, n3 = 0, n4 = 0;
 float resultado = 0;
 int operacao;
-
+string a;
 
 Console.WriteLine("=====Calculadora=====");
 
@@ -50,17 +50,27 @@ do{
     Console.Write("Digite sua escolha: ");
     operacao = int.Parse(Console.ReadLine());
 
-} while (operacao != 1 && operacao != 2 && operacao != 3 && operacao != 4);
+    switch (operacao)
+    {
+        case 1:
+            resultado = n1 + n2 + n3 + n4;
+            break;
+        case 2:
+            resultado = n1 - n2 - n3 - n4;
+            break;
+        case 3:
+            resultado = n1 * n2 * n3 * n4;
+            break;
+        case 4:
+            resultado = n1 / n2 / n3 / n4;
+            break;
+        default:
+            Console.WriteLine("Opcao inválida!");
+            break;
+    }
 
+} while (operacao < 1 || operacao > 4);
 
-if (operacao == 1)
-    resultado = n1 + n2 + n3 + n4;
-else if (operacao == 2)
-    resultado = n1 - n2 - n3 - n4;
-else if (operacao == 3)
-    resultado = n1 * n2 * n3 * n4;
-else
-    resultado = n1 / n2 / n3 / n4;
 
 Console.WriteLine("=============================");
 Console.WriteLine($"Operacao escolhida: {operacao}");
